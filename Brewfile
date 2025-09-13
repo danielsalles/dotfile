@@ -19,11 +19,18 @@ brew "python@3.13"
 cask "iterm2"               # Terminal emulator
 cask "font-hack-nerd-font"  # Nerd Font for terminal
 
+# Editor & IDE
+brew "neovim"               # Neovim editor
+brew "ripgrep"             # Fast grep (required for telescope)
+brew "fd"                  # Fast find (required for telescope)
+brew "lazygit"             # Git UI for LazyVim
+brew "lua"                 # Lua interpreter
+brew "luarocks"            # Lua package manager
+
 # Optional: Add more development tools as needed
 # brew "docker"
 # brew "gh"                  # GitHub CLI
 # brew "jq"                  # JSON processor
-# brew "ripgrep"            # Better grep
 # brew "bat"                # Better cat
 # brew "eza"                # Better ls
 # brew "httpie"             # Better curl

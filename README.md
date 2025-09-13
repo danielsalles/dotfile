@@ -40,6 +40,15 @@
 - **Git** - Version control with custom aliases
 - **Node.js** - JavaScript runtime
 - **NVM** - Node version management
+- **Neovim + LazyVim** - Modern IDE in the terminal
+
+### Editor (LazyVim)
+- **Neovim 0.11+** with LazyVim configuration
+- **LSP Support** for JavaScript, TypeScript, Python, Lua, and more
+- **Dracula Theme** consistent with terminal
+- **Telescope** for fuzzy finding
+- **Treesitter** for better syntax highlighting
+- **Git Integration** with Gitsigns and Lazygit
 
 ### Fonts
 - **Hack Nerd Font** - Terminal font with icons
@@ -86,6 +95,7 @@ source ~/.zshrc
 6. ✅ Installs NVM for Node.js management
 7. ✅ Optionally sets macOS defaults
 8. ✅ Configures iTerm2 preferences
+9. ✅ Installs and configures LazyVim (Neovim IDE)
 
 ## 📁 Repository Structure
 
@@ -170,6 +180,41 @@ The dotfiles include advanced iTerm2 configurations:
 
 ### Starship Dracula Theme
 Already configured in `config/starship.toml` with custom Dracula palette.
+
+## 💻 LazyVim (Neovim IDE)
+
+### Features
+- **Full IDE Experience** in the terminal
+- **Dracula Theme** matching your terminal theme
+- **LSP Support** with auto-completion and diagnostics
+- **File Explorer** with Neo-tree
+- **Fuzzy Finding** with Telescope
+- **Git Integration** with Gitsigns and Lazygit
+- **Fast Startup** < 50ms
+
+### Key Bindings
+- `Space` - Leader key
+- `Space e` - File explorer (Neo-tree)
+- `Space f f` - Find files (Telescope)
+- `Space f g` - Live grep in files
+- `Space g g` - Open Lazygit
+- `Space l` - Lazy plugin manager
+- `Space c` - Code actions
+- `K` - Hover documentation
+- `gd` - Go to definition
+- `gr` - Go to references
+
+### First Time Setup
+When you first open Neovim after installation:
+1. LazyVim will automatically install all plugins
+2. Wait for installation to complete
+3. Restart Neovim
+4. Run `:checkhealth` to verify everything is working
+
+### Customization
+- Custom plugins go in `config/nvim/lua/plugins/`
+- Override LazyVim defaults in `config/nvim/lua/config/`
+- LSP servers configuration in `config/nvim/lua/plugins/lsp.lua`
 
 ## 🔧 Useful Commands
 

@@ -120,6 +120,15 @@ if [ -d "/Applications/iTerm.app" ]; then
     print_success "iTerm2 configured"
 fi
 
+# 10. Install and configure LazyVim
+read -p "Do you want to install LazyVim (Neovim IDE)? (y/n) " -n 1 -r
+echo
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    print_info "Installing LazyVim..."
+    "${DOTFILES_DIR}/scripts/install-lazyvim.sh"
+    print_success "LazyVim installed"
+fi
+
 echo ""
 echo "======================================"
 echo -e "${GREEN}✨ Dotfiles installation complete!${NC}"
@@ -130,3 +139,7 @@ echo "Optional: Import Dracula theme in iTerm2:"
 echo "  1. Open iTerm2 Preferences"
 echo "  2. Go to Profiles → Colors"
 echo "  3. Import Dracula theme"
+echo ""
+if [ -d "$HOME/.config/nvim" ]; then
+    echo "LazyVim is installed! Run 'nvim' to start."
+fi
