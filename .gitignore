@@ -1,0 +1,24 @@
+# Backup directory
+backup/
+
+# macOS
+.DS_Store
+
+# iTerm2 dynamic preferences
+config/iterm2/com.googlecode.iterm2.plist.lockfile
+
+# Temporary files
+*.tmp
+*.swp
+*~
+
+# Logs
+*.log
+
+# Environment-specific files
+.env
+.env.local
+
+# IDE
+.vscode/
+.idea/
