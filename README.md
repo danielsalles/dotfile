@@ -143,10 +143,30 @@ brew bundle
 
 ## 🎨 Themes
 
-### iTerm2 Dracula Theme
+### iTerm2 Configuration
+The dotfiles include advanced iTerm2 configurations:
+
+#### Natural Text Editing & IDE-like Key Bindings
+- **Configured automatically** during installation
+- Enables IDE-style text selection and navigation:
+  - `⌘←/→` - Jump to beginning/end of line
+  - `⌥←/→` - Jump by words
+  - `⇧←/→` - Select characters
+  - `⌘⇧←/→` - Select to beginning/end of line
+  - `⌥⇧←/→` - Select by words
+  - `⌘A` - Select all
+  - `⌘Z` - Undo
+
+**Note**: Full text selection with Shift+Arrow keys has limitations in terminal emulators. For best results:
+1. Use iTerm2's Copy Mode: `Edit → Copy Mode` or `⌘⇧C`
+2. Use mouse selection
+3. Consider using Warp terminal for full IDE features
+
+#### iTerm2 Dracula Theme
 1. Open iTerm2 Preferences (`⌘,`)
 2. Go to Profiles → Colors
 3. Import Dracula theme from [Dracula Theme](https://draculatheme.com/iterm)
+4. Or it will be installed automatically by the setup script
 
 ### Starship Dracula Theme
 Already configured in `config/starship.toml` with custom Dracula palette.

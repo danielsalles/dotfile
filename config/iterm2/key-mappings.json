@@ -1,0 +1,144 @@
+{
+  "Key Mappings": [
+    {
+      "Action": "Send Escape Sequence",
+      "Text": "OH",
+      "Key": "←",
+      "Modifiers": "⌘",
+      "Description": "Move to beginning of line"
+    },
+    {
+      "Action": "Send Escape Sequence",
+      "Text": "OF",
+      "Key": "→",
+      "Modifiers": "⌘",
+      "Description": "Move to end of line"
+    },
+    {
+      "Action": "Send Escape Sequence",
+      "Text": "b",
+      "Key": "←",
+      "Modifiers": "⌥",
+      "Description": "Move backward one word"
+    },
+    {
+      "Action": "Send Escape Sequence",
+      "Text": "f",
+      "Key": "→",
+      "Modifiers": "⌥",
+      "Description": "Move forward one word"
+    },
+    {
+      "Action": "Send Hex Code",
+      "Text": "0x01",
+      "Key": "a",
+      "Modifiers": "⌘",
+      "Description": "Select all (Ctrl+A)"
+    },
+    {
+      "Action": "Send Hex Code",
+      "Text": "0x15",
+      "Key": "⌫",
+      "Modifiers": "⌘",
+      "Description": "Delete to beginning of line"
+    },
+    {
+      "Action": "Send Hex Code",
+      "Text": "0x0B",
+      "Key": "⌫",
+      "Modifiers": "⌥",
+      "Description": "Delete to end of line"
+    },
+    {
+      "Action": "Send Hex Code",
+      "Text": "0x17",
+      "Key": "⌫",
+      "Modifiers": "⌥",
+      "Description": "Delete word backward"
+    },
+    {
+      "Action": "Send Text",
+      "Text": "\\033[1;2D",
+      "Key": "←",
+      "Modifiers": "⇧",
+      "Description": "Select character left"
+    },
+    {
+      "Action": "Send Text",
+      "Text": "\\033[1;2C",
+      "Key": "→",
+      "Modifiers": "⇧",
+      "Description": "Select character right"
+    },
+    {
+      "Action": "Send Text",
+      "Text": "\\033[1;2H",
+      "Key": "←",
+      "Modifiers": "⌘⇧",
+      "Description": "Select to beginning of line"
+    },
+    {
+      "Action": "Send Text",
+      "Text": "\\033[1;2F",
+      "Key": "→",
+      "Modifiers": "⌘⇧",
+      "Description": "Select to end of line"
+    },
+    {
+      "Action": "Send Text",
+      "Text": "\\033[1;6D",
+      "Key": "←",
+      "Modifiers": "⌥⇧",
+      "Description": "Select word left"
+    },
+    {
+      "Action": "Send Text",
+      "Text": "\\033[1;6C",
+      "Key": "→",
+      "Modifiers": "⌥⇧",
+      "Description": "Select word right"
+    },
+    {
+      "Action": "Send Text",
+      "Text": "\\033[1;2A",
+      "Key": "↑",
+      "Modifiers": "⇧",
+      "Description": "Select line up"
+    },
+    {
+      "Action": "Send Text",
+      "Text": "\\033[1;2B",
+      "Key": "↓",
+      "Modifiers": "⇧",
+      "Description": "Select line down"
+    },
+    {
+      "Action": "Send Hex Code",
+      "Text": "0x1A",
+      "Key": "z",
+      "Modifiers": "⌘",
+      "Description": "Undo (Ctrl+Z)"
+    },
+    {
+      "Action": "Send Hex Code",
+      "Text": "0x18",
+      "Key": "x",
+      "Modifiers": "⌘",
+      "Description": "Cut (Ctrl+X)"
+    },
+    {
+      "Action": "Send Hex Code",
+      "Text": "0x03",
+      "Key": "c",
+      "Modifiers": "⌘",
+      "Description": "Copy/Interrupt (Ctrl+C)"
+    },
+    {
+      "Action": "Send Hex Code",
+      "Text": "0x16",
+      "Key": "v",
+      "Modifiers": "⌘",
+      "Description": "Paste (Ctrl+V)"
+    }
+  ]
+}

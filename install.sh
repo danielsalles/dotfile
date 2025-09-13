@@ -116,9 +116,7 @@ fi
 # 9. Configure iTerm2 (if installed)
 if [ -d "/Applications/iTerm.app" ]; then
     print_info "Configuring iTerm2..."
-    # Tell iTerm2 to use the custom preferences
-    defaults write com.googlecode.iterm2 PrefsCustomFolder -string "${DOTFILES_DIR}/config/iterm2"
-    defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
+    "${DOTFILES_DIR}/scripts/setup-iterm2.sh"
     print_success "iTerm2 configured"
 fi
 
