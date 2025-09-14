@@ -1,32 +1,254 @@
+# Starship Configuration - Enhanced for Development
+# Daniel's Dotfiles - Dracula Theme
+
+# Main configuration
 palette = "dracula"
+command_timeout = 1000
+scan_timeout = 30
+add_newline = true
 
-[aws]
-style = "bold orange"
+# Custom format with organized modules
+format = """
+$username\
+$hostname\
+$directory\
+$git_branch\
+$git_status\
+$git_metrics\
+$c\
+$cmake\
+${custom.cpp}\
+$nodejs\
+$python\
+$shell\
+$package\
+$docker_context\
+$line_break\
+$time\
+$character"""
 
+# Right side prompt
+right_format = """
+$cmd_duration\
+$battery\
+$memory_usage"""
+
+# Character customization (Lambda symbol)
 [character]
-error_symbol = "[λ](bold red)"
 success_symbol = "[λ](bold green)"
+error_symbol = "[λ](bold red)"
+vimcmd_symbol = "[λ](bold cyan)"
+vimcmd_replace_one_symbol = "[λ](bold purple)"
+vimcmd_replace_symbol = "[λ](bold purple)"
+vimcmd_visual_symbol = "[λ](bold yellow)"
 
-[cmd_duration]
-style = "bold yellow"
-
+# Directory configuration with icons
 [directory]
 style = "bold green"
+format = "[$path]($style)[$read_only]($read_only_style) "
+truncation_length = 3
+truncate_to_repo = true
+truncation_symbol = "…/"
+home_symbol = " ~"
+read_only = " 󰌾"
+read_only_style = "red"
 
+[directory.substitutions]
+"Documents" = "󰈙"
+"Downloads" = ""
+"Music" = ""
+"Pictures" = ""
+"Developer" = "󰲋"
+"dotfile" = ""
+"~" = " ~"
+
+# Git configuration
 [git_branch]
+symbol = " "
 style = "bold pink"
+format = "on [$symbol$branch(:$remote_branch)]($style) "
+truncation_length = 20
+truncation_symbol = "…"
 
 [git_status]
 style = "bold red"
+format = '([\[$all_status$ahead_behind\]]($style) )'
+conflicted = "🏳"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕⇡${ahead_count}⇣${behind_count}"
+up_to_date = ""
+untracked = "🤷${count}"
+stashed = "📦${count}"
+modified = "📝${count}"
+staged = "+${count}"
+renamed = "󰖷${count}"
+deleted = "🗑${count}"
 
-[hostname]
-style = "bold purple"
+[git_metrics]
+format = "([+$added]($added_style) )([-$deleted]($deleted_style) )"
+added_style = "bold green"
+deleted_style = "bold red"
+disabled = false
 
+# Node.js/JavaScript/TypeScript
+[nodejs]
+symbol = " "
+format = "via [$symbol($version)]($style) "
+detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts", "jsx", "tsx"]
+detect_files = ["package.json", ".node-version", ".nvmrc", "tsconfig.json"]
+detect_folders = ["node_modules"]
+style = "bold green"
+disabled = false
+version_format = "v${raw}"
+
+# Package version
+[package]
+symbol = "📦 "
+format = "is [$symbol$version]($style) "
+display_private = false
+disabled = false
+version_format = "v${raw}"
+
+# Python
+[python]
+symbol = " "
+format = 'via [${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style) '
+detect_extensions = ["py", "pyw"]
+detect_files = [".python-version", "Pipfile", "pyproject.toml", "requirements.txt", "setup.py", "tox.ini"]
+detect_folders = ["__pycache__", ".venv", "venv", ".virtualenv"]
+style = "yellow bold"
+pyenv_version_name = true
+pyenv_prefix = "pyenv "
+python_binary = ["python3", "python"]
+disabled = false
+
+# C Language
+[c]
+symbol = " "
+format = "via [$symbol($version(-$name))]($style) "
+detect_extensions = ["c", "h"]
+detect_files = ["Makefile", "makefile", "GNUmakefile"]
+detect_folders = []
+commands = [["cc", "--version"], ["gcc", "--version"], ["clang", "--version"]]
+style = "bold 149"
+disabled = false
+
+# C++ Custom Module
+[custom.cpp]
+detect_extensions = ["cpp", "cc", "cxx", "c++", "hpp", "hh", "hxx", "h++", "CPP", "C"]
+detect_files = ["CMakeLists.txt", "Makefile", "makefile", "compile_commands.json"]
+symbol = " "
+format = "via [$symbol($output)]($style) "
+command = """
+if command -v g++ &> /dev/null; then
+    g++ --version 2>/dev/null | head -n1 | awk '{print $NF}' | cut -d'-' -f1
+elif command -v clang++ &> /dev/null; then
+    clang++ --version 2>/dev/null | head -n1 | awk '{print $4}'
+else
+    echo ""
+fi
+"""
+style = "bold blue"
+disabled = false
+
+# CMake
+[cmake]
+symbol = "△ "
+format = "via [$symbol($version)]($style) "
+detect_files = ["CMakeLists.txt", "CMakeCache.txt"]
+style = "bold blue"
+disabled = false
+version_format = "v${raw}"
+
+# Shell indicator
+[shell]
+fish_indicator = "🐠"
+powershell_indicator = "_"
+bash_indicator = " "
+zsh_indicator = "󰰶 "
+unknown_indicator = "?"
+format = "[$indicator]($style) "
+style = "cyan bold"
+disabled = false
+
+# Docker
+[docker_context]
+symbol = "🐳 "
+format = "via [$symbol$context]($style) "
+style = "blue bold"
+only_with_files = true
+detect_files = ["docker-compose.yml", "docker-compose.yaml", "Dockerfile"]
+detect_folders = []
+disabled = false
+
+# Command duration
+[cmd_duration]
+min_time = 2_000
+format = "took [$duration]($style) "
+style = "bold yellow"
+show_milliseconds = false
+show_notifications = false
+min_time_to_notify = 45_000
+
+# Time
+[time]
+disabled = false
+format = '🕒 [$time]($style) '
+time_format = "%H:%M"
+style = "bold yellow"
+use_12hr = false
+
+# Battery
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡"
+discharging_symbol = "💀"
+unknown_symbol = "❓"
+empty_symbol = "❗"
+format = "[$symbol$percentage]($style) "
+disabled = false
+
+[[battery.display]]
+threshold = 20
+style = "bold red"
+
+[[battery.display]]
+threshold = 50
+style = "bold yellow"
+
+# Memory usage
+[memory_usage]
+symbol = "🐏 "
+format = "$symbol [${ram_pct}]($style) "
+threshold = 75
+style = "bold dimmed white"
+disabled = false
+
+# Username (only show when SSH or root)
 [username]
 format = "[$user]($style) on "
 style_user = "bold cyan"
+style_root = "bold red"
+show_always = false
+disabled = false
 
-# Define Dracula color palette
+# Hostname (only show when SSH)
+[hostname]
+ssh_only = true
+ssh_symbol = "🌐 "
+format = "[$ssh_symbol$hostname]($style) "
+style = "bold purple"
+disabled = false
+
+# AWS
+[aws]
+symbol = "☁️ "
+format = 'on [$symbol($profile)(\($region\))(\[$duration\])]($style) '
+style = "bold orange"
+disabled = false
+
+# Dracula color palette definition
 [palettes.dracula]
 background = "#282a36"
 current_line = "#44475a"
