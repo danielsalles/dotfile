@@ -1,3 +1,15 @@
+# Detect dotfiles directory dynamically
+# Since ~/.zshrc is a symlink to dotfiles/zsh/.zshrc
+if [[ -L "$HOME/.zshrc" ]]; then
+    # Get the real path of the symlink
+    ZSHRC_REAL="$(readlink -f "$HOME/.zshrc")"
+    # Get parent directory (zsh/) then parent again (dotfiles/)
+    export DOTFILES_DIR="$(dirname $(dirname "$ZSHRC_REAL"))"
+else
+    # Fallback if not a symlink (shouldn't happen with our setup)
+    export DOTFILES_DIR="$HOME/dotfiles"
+fi
+
 # Path to Oh My Zsh (default install)
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -10,6 +22,7 @@ plugins=(
     extract
     nvm
     thefuck
+    eza
     fzf-tab
     zsh-autosuggestions
     you-should-use
@@ -38,9 +51,9 @@ eval "$(zoxide init zsh)"
 # Initialize thefuck
 eval "$(thefuck --alias)"
 
-# Basic aliases (examples)
-alias ll='ls -lah'
-alias gs='git status'
+# Load custom aliases and functions (overrides Oh My Zsh defaults)
+source "$DOTFILES_DIR/zsh/aliases.zsh"
+source "$DOTFILES_DIR/zsh/functions.zsh"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
