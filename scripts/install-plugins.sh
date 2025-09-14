@@ -2,12 +2,12 @@
 
 # Install Oh My Zsh Custom Plugins
 
-set -e  # Exit on error
+set -e
 
 # Colors for output
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
 print_info() {
     echo -e "${YELLOW}→${NC} $1"

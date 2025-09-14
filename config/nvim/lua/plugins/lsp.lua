@@ -75,9 +75,11 @@ return {
 
         -- JSON
         jsonls = {
+          on_new_config = function(new_config)
+            new_config.settings.json.schemas = new_config.settings.json.schemas or {}
+          end,
           settings = {
             json = {
-              schemas = require("schemastore").json.schemas(),
               validate = { enable = true },
             },
           },
@@ -85,13 +87,15 @@ return {
 
         -- YAML
         yamlls = {
+          on_new_config = function(new_config)
+            new_config.settings.yaml.schemas = new_config.settings.yaml.schemas or {}
+          end,
           settings = {
             yaml = {
               schemaStore = {
                 enable = false,
                 url = "",
               },
-              schemas = require("schemastore").yaml.schemas(),
             },
           },
         },
@@ -111,6 +115,27 @@ return {
     "b0o/schemastore.nvim",
     lazy = true,
     version = false,
+    config = function()
+      local ok_json, schemastore = pcall(require, "schemastore")
+      if ok_json then
+        require("lspconfig").jsonls.setup({
+          settings = {
+            json = {
+              schemas = schemastore.json.schemas(),
+              validate = { enable = true },
+            },
+          },
+        })
+
+        require("lspconfig").yamlls.setup({
+          settings = {
+            yaml = {
+              schemas = schemastore.yaml.schemas(),
+            },
+          },
+        })
+      end
+    end,
   },
 
   -- Better TypeScript errors

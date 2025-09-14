@@ -6,7 +6,6 @@ return {
     priority = 1000,
     config = function()
       require("dracula").setup({
-        -- customize dracula color palette
         colors = {
           bg = "#282A36",
           fg = "#F8F8F2",
@@ -31,18 +30,14 @@ return {
           gutter_fg = "#4B5263",
           nontext = "#3B4048",
         },
-        -- show the '~' characters after the end of buffers
         show_end_of_buffer = true,
-        -- use transparent background
         transparent_bg = false,
-        -- set italic comment
         italic_comment = true,
       })
       vim.cmd([[colorscheme dracula]])
     end,
   },
 
-  -- Configure LazyVim to use dracula
   {
     "LazyVim/LazyVim",
     opts = {

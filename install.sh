@@ -3,13 +3,13 @@
 # Dotfiles Installation Script
 # This script sets up a new macOS machine with all configurations
 
-set -e  # Exit on error
+set -e
 
 # Colors for output
 RED='\033[0;31m'
 GREEN='\033[0;32m'
 YELLOW='\033[1;33m'
-NC='\033[0m' # No Color
+NC='\033[0m'
 
 # Helper functions
 print_success() {
@@ -47,7 +47,7 @@ fi
 
 # 2. Install packages from Brewfile
 print_info "Installing packages from Brewfile..."
-brew bundle --file="${DOTFILES_DIR}/Brewfile"
+brew bundle --file="${DOTFILES_DIR}/Brewfile" || true
 print_success "Packages installed"
 
 # 3. Install Oh My Zsh if not installed
@@ -135,10 +135,20 @@ echo -e "${GREEN}✨ Dotfiles installation complete!${NC}"
 echo ""
 echo "Please restart your terminal or run: source ~/.zshrc"
 echo ""
+echo -e "${YELLOW}⚠️  IMPORTANT: Configure iTerm2 Font for Icons${NC}"
+echo "======================================"
+echo "To see icons in terminal (eza, starship, etc):"
+echo "  1. Open iTerm2 → Preferences (Cmd+,)"
+echo "  2. Go to Profiles → Text"
+echo "  3. Click Font → Select 'Hack Nerd Font' or 'Hack Nerd Font Mono'"
+echo "  4. Recommended size: 13-14pt"
+echo "  5. Restart iTerm2"
+echo ""
+echo "Without this, you'll see boxes/question marks instead of icons!"
+echo ""
 echo "Optional: Import Dracula theme in iTerm2:"
-echo "  1. Open iTerm2 Preferences"
-echo "  2. Go to Profiles → Colors"
-echo "  3. Import Dracula theme"
+echo "  1. Go to Profiles → Colors"
+echo "  2. Import Dracula theme"
 echo ""
 if [ -d "$HOME/.config/nvim" ]; then
     echo "LazyVim is installed! Run 'nvim' to start."

@@ -1,31 +1,19 @@
 #!/usr/bin/env bash
 
-# macOS Configuration Script
-# Sets sensible macOS defaults for developers
-# Inspired by mathiasbynens/dotfiles
-
 set -e
 
 echo "Setting macOS defaults..."
 
-# Close any open System Preferences panes
 osascript -e 'tell application "System Preferences" to quit'
 
-# Ask for the administrator password upfront
 sudo -v
 
-# Keep-alive: update existing `sudo` time stamp until script has finished
 while true; do sudo -n true; sleep 60; kill -0 "$$" || exit; done 2>/dev/null &
 
 ###############################################################################
 # General UI/UX                                                              #
 ###############################################################################
 
-# Set computer name (as done via System Preferences → Sharing)
-# sudo scutil --set ComputerName "YourComputerName"
-# sudo scutil --set HostName "YourComputerName"
-# sudo scutil --set LocalHostName "YourComputerName"
-# sudo defaults write /Library/Preferences/SystemConfiguration/com.apple.smb.server NetBIOSName -string "YourComputerName"
 
 # Expand save panel by default
 defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -77,7 +65,7 @@ defaults write com.apple.screensaver askForPasswordDelay -int 0
 # Save screenshots to the desktop
 defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
+# PNG format
 defaults write com.apple.screencapture type -string "png"
 
 # Disable shadow in screenshots
