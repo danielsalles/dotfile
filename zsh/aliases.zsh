@@ -5,11 +5,19 @@ alias ....='cd ../../..'
 alias ~='cd ~'
 alias -- -='cd -'
 
-# List directory contents
-alias ll='ls -lah'
-alias la='ls -lAh'
-alias l='ls -lh'
-alias ls='ls -G'
+# Eza aliases (modern ls replacement with icons)
+alias ls='eza --icons --group-directories-first -1'
+alias ll='eza --icons --group-directories-first -lah'
+alias la='eza --icons --group-directories-first -la'
+alias l='eza --icons --group-directories-first -l'
+alias lt='eza --icons --group-directories-first --tree --level=2'
+alias tree='eza --icons --tree'
+
+# Bat aliases (better cat with syntax highlighting)
+alias bat='bat --theme=Dracula'
+alias b='bat --theme=Dracula'
+alias bcat='bat -pp'
+alias bathelp='bat --list-themes'
 
 # Git aliases
 alias gs='git status'
