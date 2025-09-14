@@ -67,6 +67,20 @@ cd ~/dotfiles
 make install
 ```
 
+## ⚠️ Required Manual Configuration
+
+### iTerm2 Font Setup (for icons support)
+After installation, you need to configure iTerm2 to use the Nerd Font for icons to display correctly:
+
+1. Open iTerm2
+2. Press `Cmd + ,` to open Preferences
+3. Go to **Profiles → Text**
+4. Click on **Font** and select **"Hack Nerd Font"** or **"Hack Nerd Font Mono"**
+5. Recommended size: 13-14pt
+6. Restart iTerm2
+
+Without this configuration, you'll see boxes or question marks instead of icons in `eza`, `starship`, and other tools.
+
 ## 📖 Manual Installation
 
 1. **Clone the repository:**
