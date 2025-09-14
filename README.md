@@ -1,304 +1,265 @@
 # 🚀 Daniel's Dotfiles
 
-> Personal dotfiles for macOS development environment with Zsh, Oh My Zsh, Starship, and iTerm2
+> Modern macOS development environment with Zsh, Oh My Zsh, Starship, and iTerm2
 
-![macOS](https://img.shields.io/badge/macOS-Monterey+-blue)
+![macOS](https://img.shields.io/badge/macOS-12+-blue)
 ![Shell](https://img.shields.io/badge/Shell-Zsh-green)
 ![Terminal](https://img.shields.io/badge/Terminal-iTerm2-orange)
 
 ## ✨ Features
 
-- **🎨 Dracula Theme** everywhere (iTerm2, Starship)
-- **⚡ Fast** shell with optimized plugins and async loading
-- **🔧 Automated** setup with single command installation
-- **📦 Homebrew Bundle** for consistent package management
-- **🚀 Starship Prompt** with custom Dracula theme
-- **🧠 Smart Navigation** with Zoxide
-- **✨ Enhanced Terminal** with syntax highlighting and autosuggestions
-- **🛠️ Developer Tools** pre-configured
-
-## 📋 What's Included
-
-### Shell (Zsh + Oh My Zsh)
-- **Plugins:**
-  - `git` - Git aliases and functions
-  - `extract` - Extract any archive format
-  - `nvm` - Node Version Manager integration
-  - `thefuck` - Command correction
-  - `fzf-tab` - Fuzzy completion
-  - `zsh-autosuggestions` - Fish-like suggestions
-  - `you-should-use` - Alias reminders
-  - `zsh-syntax-highlighting` - Syntax highlighting
-
-### Terminal Tools
-- **Starship** - Cross-shell prompt with Dracula theme
-- **Zoxide** - Smarter `cd` command
-- **fzf** - Fuzzy finder
-- **TheFuck** - Corrects console commands
-
-### Development
-- **Git** - Version control with custom aliases
-- **Node.js** - JavaScript runtime
-- **NVM** - Node version management
-- **Neovim + LazyVim** - Modern IDE in the terminal
-
-### Editor (LazyVim)
-- **Neovim 0.11+** with LazyVim configuration
-- **LSP Support** for JavaScript, TypeScript, Python, Lua, and more
-- **Dracula Theme** consistent with terminal
-- **Telescope** for fuzzy finding
-- **Treesitter** for better syntax highlighting
-- **Git Integration** with Gitsigns and Lazygit
-
-### Fonts
-- **Hack Nerd Font** - Terminal font with icons
+- **🎨 Dracula Theme** - Consistent dark theme across all tools
+- **⚡ Fast Shell** - Optimized plugins with async loading
+- **🔧 Automated Setup** - Single command installation
+- **📦 Homebrew Bundle** - Reproducible package management
+- **🚀 Modern CLI Tools** - eza, bat, ripgrep, fd, and more
+- **🧠 Smart Navigation** - Zoxide for intelligent directory jumping
+- **💻 LazyVim IDE** - Full Neovim IDE experience in terminal
+- **🔍 Dynamic Paths** - Works from any clone location
 
 ## 🚀 Quick Install
 
-### One-liner Installation
 ```bash
+# Clone and install
 git clone https://github.com/danielsalles/dotfile.git ~/dotfiles && cd ~/dotfiles && ./install.sh
-```
 
-### Using Make
-```bash
-git clone https://github.com/danielsalles/dotfile.git ~/dotfiles
-cd ~/dotfiles
-make install
+# Or using Make
+git clone https://github.com/danielsalles/dotfile.git ~/dotfiles && cd ~/dotfiles && make install
 ```
 
 ## ⚠️ Required Manual Configuration
 
-### iTerm2 Font Setup (for icons support)
-After installation, you need to configure iTerm2 to use the Nerd Font for icons to display correctly:
+### iTerm2 Font Setup
+After installation, configure iTerm2 to display icons correctly:
 
-1. Open iTerm2
-2. Press `Cmd + ,` to open Preferences
-3. Go to **Profiles → Text**
-4. Click on **Font** and select **"Hack Nerd Font"** or **"Hack Nerd Font Mono"**
-5. Recommended size: 13-14pt
-6. Restart iTerm2
+1. Open iTerm2 → Preferences (`Cmd+,`)
+2. Go to **Profiles → Text**
+3. Change font to **"Hack Nerd Font"**
+4. Recommended size: 13-14pt
+5. Restart iTerm2
 
-Without this configuration, you'll see boxes or question marks instead of icons in `eza`, `starship`, and other tools.
+Without this, you'll see boxes/question marks instead of icons.
 
-## 📖 Manual Installation
+## 📋 What's Included
 
-1. **Clone the repository:**
-```bash
-git clone https://github.com/danielsalles/dotfile.git ~/dotfiles
-cd ~/dotfiles
-```
+### Shell & Plugins
+**Oh My Zsh plugins configured:**
+- `git` - Git aliases and functions
+- `extract` - Extract any archive format
+- `nvm` - Node Version Manager integration
+- `thefuck` - Command correction
+- `eza` - Integration with eza command
+- `fzf-tab` - Fuzzy completion
+- `zsh-autosuggestions` - Fish-like suggestions
+- `you-should-use` - Alias reminders
+- `zsh-syntax-highlighting` - Command highlighting
 
-2. **Run the installation script:**
-```bash
-./install.sh
-```
+### Terminal Tools
+- **[eza](https://github.com/eza-community/eza)** - Modern ls replacement with icons
+- **[bat](https://github.com/sharkdp/bat)** - Enhanced cat with syntax highlighting
+- **[starship](https://starship.rs)** - Cross-shell prompt
+- **[zoxide](https://github.com/ajeetdsouza/zoxide)** - Smarter cd command
+- **[fzf](https://github.com/junegunn/fzf)** - Fuzzy finder
+- **[ripgrep](https://github.com/BurntSushi/ripgrep)** - Ultra-fast grep
+- **[fd](https://github.com/sharkdp/fd)** - User-friendly find
+- **[thefuck](https://github.com/nvbn/thefuck)** - Command correction
 
-3. **Restart your terminal or reload configuration:**
-```bash
-source ~/.zshrc
-```
+### Development Tools
+- **Git** - Version control with custom aliases
+- **Node.js** - JavaScript runtime
+- **Python** - For various CLI tools
+- **Neovim** - Modern Vim fork
+- **Lazygit** - Terminal UI for Git
 
-## 🛠️ What Does the Install Script Do?
-
-1. ✅ Installs Homebrew (if not installed)
-2. ✅ Installs all packages from `Brewfile`
-3. ✅ Installs Oh My Zsh
-4. ✅ Clones and installs custom Zsh plugins
-5. ✅ Creates symlinks for all configurations
-6. ✅ Installs NVM for Node.js management
-7. ✅ Optionally sets macOS defaults
-8. ✅ Configures iTerm2 preferences
-9. ✅ Installs and configures LazyVim (Neovim IDE)
+### LazyVim IDE
+- Full IDE experience with LSP support
+- Language servers for JS/TS, Python, Lua, and more
+- Telescope fuzzy finder
+- Treesitter syntax highlighting
+- Git integration with Gitsigns
 
 ## 📁 Repository Structure
 
 ```
 dotfiles/
 ├── Brewfile              # Homebrew packages
-├── Makefile             # Automation commands
-├── README.md            # This file
-├── install.sh           # Main installation script
-├── config/              # Application configurations
-│   ├── starship.toml   # Starship prompt config
-│   └── iterm2/         # iTerm2 preferences
-├── git/                 # Git configuration
-│   ├── .gitconfig      # Git config
+├── Makefile              # Automation commands
+├── README.md             # This file
+├── install.sh            # Main installation script
+├── config/               # Application configurations
+│   ├── starship.toml     # Starship prompt config
+│   ├── nvim/             # Neovim/LazyVim config
+│   └── iterm2/           # iTerm2 configurations
+│       └── key-mappings.json
+├── git/                  # Git configuration
+│   ├── .gitconfig        # Git config
 │   └── .gitignore_global # Global gitignore
-├── macos/               # macOS specific
-│   └── set-defaults.sh # macOS preferences
-├── scripts/             # Helper scripts
-│   └── install-plugins.sh # Oh My Zsh plugins installer
-└── zsh/                 # Zsh configuration
-    ├── .zshrc          # Main Zsh config
-    ├── aliases.zsh     # Custom aliases
-    ├── functions.zsh   # Custom functions
-    └── plugins.txt     # Plugin list
-
+├── macos/                # macOS specific
+│   └── set-defaults.sh   # macOS preferences
+├── scripts/              # Helper scripts
+│   ├── install-plugins.sh     # Oh My Zsh plugins
+│   ├── install-lazyvim.sh     # LazyVim setup
+│   ├── setup-iterm2.sh        # iTerm2 config
+│   └── validate-setup.sh      # Validation tool
+└── zsh/                  # Zsh configuration
+    ├── .zshrc            # Main Zsh config
+    ├── aliases.zsh       # Custom aliases
+    └── functions.zsh     # Custom functions
 ```
 
-## ⚙️ Customization
+## 🛠️ Installation Details
 
-### Adding New Aliases
-Edit `zsh/aliases.zsh` and add your custom aliases:
+The install script will:
+1. ✅ Install Homebrew (if not installed)
+2. ✅ Install all packages from Brewfile
+3. ✅ Install Oh My Zsh framework
+4. ✅ Clone and install custom Zsh plugins
+5. ✅ Create symlinks for all configurations
+6. ✅ Configure dynamic DOTFILES_DIR for portability
+7. ✅ Install NVM for Node.js management
+8. ✅ Set up iTerm2 key mappings
+9. ✅ Configure LazyVim (optional)
+10. ✅ Apply macOS defaults (optional)
+
+## ⚙️ Configuration
+
+### Key Aliases
+
+**eza (ls replacement):**
+- `ls` - List files vertically with icons
+- `ll` - Long format with details
+- `la` - Show all including hidden
+- `lt` - Tree view (2 levels)
+- `tree` - Full tree with icons
+
+**bat (cat replacement):**
+- `b` - Quick view with Dracula theme
+- `bcat` - Plain output (cat compatible)
+- `bathelp` - List available themes
+
+**Navigation:**
+- `..` - Go up one directory
+- `...` - Go up two directories
+- `-` - Go to previous directory
+
+### Custom Functions
+- `mkd` - Create directory and enter it
+- `extract` - Extract any archive format
+- `ff` - Find files by name
+- `fd` - Find directories by name
+
+### Adding Your Own
+
 ```bash
+# Add aliases to zsh/aliases.zsh
 alias myalias='my command'
-```
 
-### Adding New Functions
-Edit `zsh/functions.zsh` and add your custom functions:
-```bash
+# Add functions to zsh/functions.zsh
 function myfunction() {
-    # your code here
+    # your code
 }
-```
 
-### Installing Additional Packages
-Add packages to `Brewfile`:
-```ruby
+# Add packages to Brewfile
 brew "package-name"
-cask "app-name"
-```
-
-Then run:
-```bash
-brew bundle
 ```
 
 ## 🎨 Themes
 
-### iTerm2 Configuration
-The dotfiles include advanced iTerm2 configurations:
+All tools are configured with the **Dracula** dark theme for consistency:
+- Starship prompt (config/starship.toml)
+- Bat syntax highlighting
+- LazyVim editor theme
+- iTerm2 (manual import required)
 
-#### Natural Text Editing & IDE-like Key Bindings
-- **Configured automatically** during installation
-- Enables IDE-style text selection and navigation:
-  - `⌘←/→` - Jump to beginning/end of line
-  - `⌥←/→` - Jump by words
-  - `⇧←/→` - Select characters
-  - `⌘⇧←/→` - Select to beginning/end of line
-  - `⌥⇧←/→` - Select by words
-  - `⌘A` - Select all
-  - `⌘Z` - Undo
+To import iTerm2 Dracula theme:
+1. Download from [draculatheme.com/iterm](https://draculatheme.com/iterm)
+2. iTerm2 → Preferences → Profiles → Colors → Import
 
-**Note**: Full text selection with Shift+Arrow keys has limitations in terminal emulators. For best results:
-1. Use iTerm2's Copy Mode: `Edit → Copy Mode` or `⌘⇧C`
-2. Use mouse selection
-3. Consider using Warp terminal for full IDE features
-
-#### iTerm2 Dracula Theme
-1. Open iTerm2 Preferences (`⌘,`)
-2. Go to Profiles → Colors
-3. Import Dracula theme from [Dracula Theme](https://draculatheme.com/iterm)
-4. Or it will be installed automatically by the setup script
-
-### Starship Dracula Theme
-Already configured in `config/starship.toml` with custom Dracula palette.
-
-## 💻 LazyVim (Neovim IDE)
-
-### Features
-- **Full IDE Experience** in the terminal
-- **Dracula Theme** matching your terminal theme
-- **LSP Support** with auto-completion and diagnostics
-- **File Explorer** with Neo-tree
-- **Fuzzy Finding** with Telescope
-- **Git Integration** with Gitsigns and Lazygit
-- **Fast Startup** < 50ms
+## 💻 LazyVim Usage
 
 ### Key Bindings
 - `Space` - Leader key
-- `Space e` - File explorer (Neo-tree)
-- `Space f f` - Find files (Telescope)
-- `Space f g` - Live grep in files
-- `Space g g` - Open Lazygit
-- `Space l` - Lazy plugin manager
-- `Space c` - Code actions
+- `Space e` - File explorer
+- `Space ff` - Find files
+- `Space fg` - Live grep
+- `Space gg` - Open Lazygit
 - `K` - Hover documentation
 - `gd` - Go to definition
-- `gr` - Go to references
 
 ### First Time Setup
-When you first open Neovim after installation:
-1. LazyVim will automatically install all plugins
-2. Wait for installation to complete
+1. Run `nvim` after installation
+2. Wait for plugins to install automatically
 3. Restart Neovim
-4. Run `:checkhealth` to verify everything is working
-
-### Customization
-- Custom plugins go in `config/nvim/lua/plugins/`
-- Override LazyVim defaults in `config/nvim/lua/config/`
-- LSP servers configuration in `config/nvim/lua/plugins/lsp.lua`
+4. Run `:checkhealth` to verify
 
 ## 🔧 Useful Commands
 
 ```bash
-# Update all Homebrew packages
+# Update everything
 make update
 
-# Backup current dotfiles
+# Backup current configs
 make backup
 
-# Clean up broken symlinks
-make clean
+# Validate installation
+make doctor
+./scripts/validate-setup.sh
 
-# Show all make commands
-make help
+# Test portability
+./scripts/validate-setup.sh --test-clone
+
+# Clean broken symlinks
+make clean
 ```
 
 ## 🐛 Troubleshooting
 
-### Zsh plugins not loading
-```bash
-# Reinstall plugins
-./scripts/install-plugins.sh
-```
+### Icons not showing?
+Ensure iTerm2 is using "Hack Nerd Font" (see Required Manual Configuration above)
 
-### Command not found errors
+### Plugins not loading?
 ```bash
-# Reload shell configuration
+./scripts/install-plugins.sh
 source ~/.zshrc
 ```
 
-### Permission denied on scripts
+### Command not found?
 ```bash
-# Make scripts executable
+brew bundle --file=Brewfile
+source ~/.zshrc
+```
+
+### Permission denied?
+```bash
 chmod +x install.sh scripts/*.sh macos/*.sh
 ```
 
-## 📝 Manual Steps After Installation
+## 📝 Post-Installation
 
-1. **Configure Git user:**
+1. **Configure Git:**
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
 ```
 
-2. **Import iTerm2 Dracula theme:**
-   - Download from https://draculatheme.com/iterm
-   - Import in iTerm2 Preferences → Profiles → Colors
+2. **Import iTerm2 theme** (optional - see Themes section)
 
-3. **Set iTerm2 font:**
-   - Go to iTerm2 Preferences → Profiles → Text
-   - Select "Hack Nerd Font"
+3. **Customize as needed** (see Configuration section)
 
 ## 🤝 Contributing
 
-Feel free to fork this repository and customize it for your own use!
+Feel free to fork and customize for your own use!
 
 ## 📄 License
 
-MIT - See [LICENSE](LICENSE) file for details.
+MIT - See [LICENSE](LICENSE) file
 
 ## 🙏 Acknowledgments
 
-This dotfiles repository structure and organization is heavily inspired by the best practices from:
-
-- **[mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles)** - The legendary dotfiles repository by Mathias Bynens, especially the bootstrap approach and macOS defaults script
-- **[holman/dotfiles](https://github.com/holman/dotfiles)** - Zach Holman's topic-centric dotfiles organization, which inspired the modular structure
-- **[Dracula Theme](https://draculatheme.com)** - The beautiful dark theme used throughout the setup
-
-Special thanks to these developers for sharing their configurations and making the community better!
+Inspired by:
+- [mathiasbynens/dotfiles](https://github.com/mathiasbynens/dotfiles) - macOS defaults script
+- [holman/dotfiles](https://github.com/holman/dotfiles) - Topic-centric organization
+- [Dracula Theme](https://draculatheme.com) - Beautiful dark theme
 
 ---
 
