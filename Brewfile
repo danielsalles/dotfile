@@ -1,39 +1,37 @@
 # Taps
-tap "homebrew/bundle"
-tap "homebrew/cask-fonts"
 
 # Terminal & Shell Tools
-brew "starship"              # Cross-shell prompt
-brew "zoxide"                # Smarter cd command
-brew "fzf"                   # Fuzzy finder
-brew "thefuck"              # Command correction
+brew "starship"
+brew "zoxide"
+brew "fzf"
+brew "thefuck"
+brew "eza"
+brew "bat"
 
 # Development Tools
-brew "git"                   # Version control
-brew "node"                  # Node.js runtime
+brew "git"
+brew "node"
 
-# Python (dependency for thefuck)
+# Python
 brew "python@3.13"
 
 # Casks (GUI Applications)
-cask "iterm2"               # Terminal emulator
-cask "font-hack-nerd-font"  # Nerd Font for terminal
+cask "iterm2"
+cask "font-hack-nerd-font"
 
 # Editor & IDE
-brew "neovim"               # Neovim editor
-brew "ripgrep"             # Fast grep (required for telescope)
-brew "fd"                  # Fast find (required for telescope)
-brew "lazygit"             # Git UI for LazyVim
-brew "lua"                 # Lua interpreter
-brew "luarocks"            # Lua package manager
+brew "neovim"
+brew "ripgrep"
+brew "fd"
+brew "lazygit"
+brew "lua"
+brew "luarocks"
 
 # Optional: Add more development tools as needed
 # brew "docker"
-# brew "gh"                  # GitHub CLI
-# brew "jq"                  # JSON processor
-# brew "bat"                # Better cat
-# brew "eza"                # Better ls
-# brew "httpie"             # Better curl
+# brew "gh"
+# brew "jq"
+# brew "httpie"
 
 # Optional: More casks
 # cask "visual-studio-code"
