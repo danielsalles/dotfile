@@ -8,7 +8,7 @@
 
 ## ✨ Features
 
-- **🎨 Dracula Theme** - Consistent dark theme across all tools
+- **🎨 Dracula Theme** - Dark theme support for compatible tools
 - **⚡ Fast Shell** - Optimized plugins with async loading
 - **🔧 Automated Setup** - Single command installation
 - **📦 Homebrew Bundle** - Reproducible package management
@@ -166,11 +166,12 @@ brew "package-name"
 
 ## 🎨 Themes
 
-All tools are configured with the **Dracula** dark theme for consistency:
-- Starship prompt (config/starship.toml)
-- Bat syntax highlighting
+The **Dracula** dark theme is available for:
+- Bat syntax highlighting (configured)
 - LazyVim editor theme
 - iTerm2 (manual import required)
+
+Note: Starship uses the `nerd-font-symbols` preset for optimal icon display
 
 To import iTerm2 Dracula theme:
 1. Download from [draculatheme.com/iterm](https://draculatheme.com/iterm)
