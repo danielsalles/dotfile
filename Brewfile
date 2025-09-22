@@ -17,7 +17,7 @@ brew "python@3.13"
 
 # Casks (GUI Applications)
 cask "iterm2"
-cask "font-hack-nerd-font"
+cask "font-fira-code-nerd-font"  # FiraCode Nerd Font v3.4.0+
 
 # Editor & IDE
 brew "neovim"

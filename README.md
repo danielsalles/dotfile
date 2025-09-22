@@ -1,6 +1,6 @@
-# 🚀 Daniel's Dotfiles
+# 🚀 macOS Dotfiles
 
-> Modern macOS development environment with Zsh, Oh My Zsh, Starship, and iTerm2
+> Modern development environment with Zsh, Oh My Zsh, Starship, LazyVim, and iTerm2
 
 ![macOS](https://img.shields.io/badge/macOS-12+-blue)
 ![Shell](https://img.shields.io/badge/Shell-Zsh-green)
@@ -34,9 +34,10 @@ After installation, configure iTerm2 to display icons correctly:
 
 1. Open iTerm2 → Preferences (`Cmd+,`)
 2. Go to **Profiles → Text**
-3. Change font to **"Hack Nerd Font"**
-4. Recommended size: 13-14pt
-5. Restart iTerm2
+3. **Font**: Select `FiraCode Nerd Font` (NOT Mono or Propo variants)
+4. **Non-ASCII Font**: Select `FiraCode Nerd Font` (same as Font)
+5. Recommended size: 12-13pt
+6. Restart iTerm2
 
 Without this, you'll see boxes/question marks instead of icons.
 
@@ -71,12 +72,13 @@ Without this, you'll see boxes/question marks instead of icons.
 - **Neovim** - Modern Vim fork
 - **Lazygit** - Terminal UI for Git
 
-### LazyVim IDE
+### LazyVim IDE (Neovim)
 - Full IDE experience with LSP support
 - Language servers for JS/TS, Python, Lua, and more
 - Telescope fuzzy finder
 - Treesitter syntax highlighting
 - Git integration with Gitsigns
+- Pre-configured with custom settings and plugins
 
 ## 📁 Repository Structure
 
@@ -99,8 +101,7 @@ dotfiles/
 ├── scripts/              # Helper scripts
 │   ├── install-plugins.sh     # Oh My Zsh plugins
 │   ├── install-lazyvim.sh     # LazyVim setup
-│   ├── setup-iterm2.sh        # iTerm2 config
-│   └── validate-setup.sh      # Validation tool
+│   └── setup-iterm2.sh        # iTerm2 config
 └── zsh/                  # Zsh configuration
     ├── .zshrc            # Main Zsh config
     ├── aliases.zsh       # Custom aliases
@@ -111,14 +112,14 @@ dotfiles/
 
 The install script will:
 1. ✅ Install Homebrew (if not installed)
-2. ✅ Install all packages from Brewfile
+2. ✅ Install all packages from Brewfile (including Neovim & FiraCode Nerd Font)
 3. ✅ Install Oh My Zsh framework
 4. ✅ Clone and install custom Zsh plugins
 5. ✅ Create symlinks for all configurations
 6. ✅ Configure dynamic DOTFILES_DIR for portability
 7. ✅ Install NVM for Node.js management
 8. ✅ Set up iTerm2 key mappings
-9. ✅ Configure LazyVim (optional)
+9. ✅ Configure LazyVim IDE with custom settings
 10. ✅ Apply macOS defaults (optional)
 
 ## ⚙️ Configuration
@@ -201,12 +202,8 @@ make update
 # Backup current configs
 make backup
 
-# Validate installation
+# Check installation status
 make doctor
-./scripts/validate-setup.sh
-
-# Test portability
-./scripts/validate-setup.sh --test-clone
 
 # Clean broken symlinks
 make clean
@@ -215,7 +212,7 @@ make clean
 ## 🐛 Troubleshooting
 
 ### Icons not showing?
-Ensure iTerm2 is using "Hack Nerd Font" (see Required Manual Configuration above)
+Ensure iTerm2 is using "FiraCode Nerd Font" (see Required Manual Configuration above)
 
 ### Plugins not loading?
 ```bash

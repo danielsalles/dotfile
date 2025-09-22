@@ -94,6 +94,8 @@ backup_and_symlink() {
 # Symlink dotfiles
 backup_and_symlink "${DOTFILES_DIR}/zsh/.zshrc" "$HOME/.zshrc"
 backup_and_symlink "${DOTFILES_DIR}/config/starship.toml" "$HOME/.config/starship.toml"
+backup_and_symlink "${DOTFILES_DIR}/git/.gitconfig" "$HOME/.gitconfig"
+backup_and_symlink "${DOTFILES_DIR}/git/.gitignore_global" "$HOME/.gitignore_global"
 
 # 7. Install Node Version Manager (NVM) if not installed
 if [ ! -d "$HOME/.nvm" ]; then
@@ -121,13 +123,9 @@ if [ -d "/Applications/iTerm.app" ]; then
 fi
 
 # 10. Install and configure LazyVim
-read -p "Do you want to install LazyVim (Neovim IDE)? (y/n) " -n 1 -r
-echo
-if [[ $REPLY =~ ^[Yy]$ ]]; then
-    print_info "Installing LazyVim..."
-    "${DOTFILES_DIR}/scripts/install-lazyvim.sh"
-    print_success "LazyVim installed"
-fi
+print_info "Installing LazyVim..."
+"${DOTFILES_DIR}/scripts/install-lazyvim.sh"
+print_success "LazyVim installed"
 
 echo ""
 echo "======================================"
@@ -140,9 +138,10 @@ echo "======================================"
 echo "To see icons in terminal (eza, starship, etc):"
 echo "  1. Open iTerm2 → Preferences (Cmd+,)"
 echo "  2. Go to Profiles → Text"
-echo "  3. Click Font → Select 'Hack Nerd Font' or 'Hack Nerd Font Mono'"
-echo "  4. Recommended size: 13-14pt"
-echo "  5. Restart iTerm2"
+echo "  3. In Font dropdown, select: 'FiraCode Nerd Font' (NOT Mono or Propo)"
+echo "  4. In Non-ASCII Font, select: 'FiraCode Nerd Font' (same as Font)"
+echo "  5. Recommended size: 12-13pt"
+echo "  6. Restart iTerm2"
 echo ""
 echo "Without this, you'll see boxes/question marks instead of icons!"
 echo ""
@@ -150,6 +149,4 @@ echo "Optional: Import Dracula theme in iTerm2:"
 echo "  1. Go to Profiles → Colors"
 echo "  2. Import Dracula theme"
 echo ""
-if [ -d "$HOME/.config/nvim" ]; then
-    echo "LazyVim is installed! Run 'nvim' to start."
-fi
+echo "LazyVim is installed! Run 'nvim' to start the IDE."

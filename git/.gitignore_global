@@ -125,7 +125,7 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
+# lib/ (removed - too generic, was blocking important project files)
 lib64/
 parts/
 sdist/
@@ -239,4 +239,16 @@ temp/
 # Environment variables
 .env
 .env.local
-.env.*.local
+.env.*.localCLAUDE.md
+
+# Claude AI Files
+CLAUDE.md
+CLAUDE.local.md
+.claude/
+.claude/settings.local.json
+.claude/agents/
+.claude/commands/
+.claude/claude.json
+*.claude
+.claudeignore
+claude-artifacts/
